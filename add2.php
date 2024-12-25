@@ -18,10 +18,10 @@
         font-family: "Itim", serif;
          font-weight: 400;
         font-style: normal;
-        margin-top: 250;
-        margin-left:250;
-        margin-bottom: 250;
-        margin-right: 250;
+        margin-top: 100px;
+        margin-left:100px;
+        margin-bottom: 100px;
+        margin-right: 100px
     }
     </style>
     <meta charset="UTF-8">
@@ -40,9 +40,9 @@
   </div>
 
   <div class="row mb-3">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">ชื่อเล่น</label>
+    <label for="inputPassword3" class="col-sm-2 col-form-label">สายพันธ์ุ</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="inputPassword3" name="nickname">
+      <input type="text" class="form-control" id="inputPassword3" name="breed">
     </div>
     <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
   </div>
@@ -50,9 +50,16 @@
   <div class="row mb-3">
     <label for="inputPassword3" class="col-sm-2 col-form-label">อายุ</label>
     <div class="col-sm-2">
-      <input type="text" class="form-control" id="inputPassword3" name="age">
+      <input type="text" class="form-control" id="inputPassword3" name="Age">
     </div>
     <label for="inputPassword3" class="col-sm-2 col-form-label">ปี</label>
+  </div>
+  <div class="row mb-3">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">เพศ</label>
+    <div class="col-sm-2">
+      <input type="text" class="form-control" id="inputPassword3" name="gender">
+    </div>
+    <label for="inputPassword3" class="col-sm-2 col-form-label"></label>
     </div>
   <button type="submit" class="btn btn-primary">บันทึกข้อมูล</button>
   <button type="reset" class="btn btn-danger">ยกเลิก</button>
@@ -61,14 +68,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name=$_POST['name'];
-    $nickname=$_POST['nickname'];
+    $breed=$_POST['breed'];
     $age=$_POST['age'];
+    $gender=$_POST['gender'];
 
 // ทำการเพิ่มข้อมูล
 try {
 
-    $sql = "INSERT INTO student (name, nickname, age)
-    VALUES ('$name', '$nickname', '$age')";
+    $sql = "INSERT INTO dog (name, breed, age ,gender)
+    VALUES ('$name', '$breed', '$age','$gender')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "<div class='alert alert-success'><strong> ยินดีด้วยค่ะ คุณได้บันทึกข้อมูลเข้าไปใหม่ 1 รายการ! </strong></div>";
